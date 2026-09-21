@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://bl4vt1davdlmw"]
+
+[ext_resource type="Script" uid="uid://c3il447t2gjen" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://ctfc4k5wople1" path="res://assets/restart.png" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://b7tutgtwkx8gl" path="res://assets/restart_pressed.png" id="3_lquwl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ehgs"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_0reyj"]
+font_size = 50
+
+[node name="Main" type="Node2D" unique_id=510602644]
+script = ExtResource("1_ig7tw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1199902619]
+offset_left = 166.0
+offset_right = 1002.0
+offset_bottom = 547.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.13725491, 1, 1, 1)
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect" unique_id=2058591183]
+layout_mode = 0
+offset_right = 836.0
+offset_bottom = 547.0
+columns = 4
+
+[node name="ResetButton" type="TextureButton" parent="." unique_id=2090524709]
+offset_left = 445.0
+offset_top = 568.0
+offset_right = 1860.0
+offset_bottom = 918.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("2_1bvp3")
+texture_pressed = ExtResource("3_lquwl")
+stretch_mode = 4
+
+[node name="P2ColorRect" type="ColorRect" parent="." unique_id=1915132240]
+offset_left = 1023.0
+offset_top = 50.0
+offset_right = 1140.0
+offset_bottom = 133.0
+color = Color(0.39215687, 1, 0.39215687, 0)
+
+[node name="Label2" type="Label" parent="P2ColorRect" unique_id=1098267701]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "p2"
+label_settings = SubResource("LabelSettings_5ehgs")
+horizontal_alignment = 1
+
+[node name="P2PointsLabel" type="Label" parent="." unique_id=1850916036]
+offset_left = 1026.0
+offset_top = 142.0
+offset_right = 1135.0
+offset_bottom = 211.0
+text = "0"
+label_settings = SubResource("LabelSettings_0reyj")
+horizontal_alignment = 1
+
+[node name="P1PointsLabel" type="Label" parent="." unique_id=1954704655]
+offset_left = 34.0
+offset_top = 139.0
+offset_right = 143.0
+offset_bottom = 208.0
+text = "0"
+label_settings = SubResource("LabelSettings_0reyj")
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1118100803]
+one_shot = true
+
+[node name="P1ColorRect" type="ColorRect" parent="." unique_id=1169446773]
+offset_left = 37.0
+offset_top = 50.0
+offset_right = 142.0
+offset_bottom = 129.0
+color = Color(0.39215687, 1, 0.39215687, 0)
+
+[node name="Label" type="Label" parent="P1ColorRect" unique_id=1436187518]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "p1"
+label_settings = SubResource("LabelSettings_5ehgs")
+horizontal_alignment = 1
+
+[node name="InputShield" type="Control" parent="." unique_id=1453527509]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1156.0
+offset_bottom = 650.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[connection signal="button_up" from="ResetButton" to="." method="_on_reset_button_button_up"]
